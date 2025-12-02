@@ -4,4 +4,4 @@ Assistente de estudos em Cloud Computing usando FastAPI + Ollama (gamma:3.1b) + 
 
 Este repositório ainda está em construção.
 
-Testando CI.
+Testando CI novamente
