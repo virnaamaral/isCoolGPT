@@ -4,4 +4,4 @@ Assistente de estudos em Cloud Computing usando FastAPI + Ollama (gemma3.1b) + D
 
 Este repositório ainda está em construção.
 
-Testando CI.
+testando fluxo de ci novamente
