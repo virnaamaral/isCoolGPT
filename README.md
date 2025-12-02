@@ -1,6 +1,6 @@
 # IsCoolGPT
 
-Assistente de estudos em Cloud Computing usando FastAPI + Ollama (gamma:3.1b) + Docker + Render.
+Assistente de estudos em Cloud Computing usando FastAPI + Ollama (gemma3.1b) + Docker + Render.
 
 Este repositório ainda está em construção.
 
