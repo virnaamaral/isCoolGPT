@@ -1,0 +1,54 @@
+name: Auto PR main -> staging
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Verifica se já existe PR main -> staging
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          OWNER: ${{ github.repository_owner }}
+        run: |
+          RESPONSE=$(curl -s \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$REPO/pulls?state=open&base=staging&head=$OWNER:main")
+
+          # usa jq pra contar quantos PRs abertos existem (0 ou mais)
+          COUNT=$(echo "$RESPONSE" | jq 'length')
+          echo "open_prs=$COUNT" >> "$GITHUB_OUTPUT"
+
+      - name: Cria PR main -> staging (se não existir)
+        if: steps.check.outputs.open_prs == '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          BODY="PR automático criado pelo GitHub Actions para sincronizar main em staging."
+
+          curl -s \
+            -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$REPO/pulls" \
+            -d "$(
+              jq -n \
+                --arg title 'chore: sync main -> staging' \
+                --arg head 'main' \
+                --arg base 'staging' \
+                --arg body "$BODY" \
+                '{title: $title, head: $head, base: $base, body: $body}'
+            )"
+
+          echo "PR main -> staging criado."
