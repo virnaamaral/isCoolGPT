@@ -2,7 +2,7 @@ name: Auto-merge main -> staging
 
 on:
   pull_request:
-    types: [opened, reopened, synchronize]
+    types: [opened, reopened, synchronize, ready_for_review]
     branches:
       - staging
 
@@ -12,8 +12,10 @@ permissions:
 
 jobs:
   enable-automerge:
-    # Só autoconfigura se o PR foi criado pelo GitHub Actions (seu workflow de auto-PR)
-    if: github.actor == 'github-actions[bot]'
+    # Só vamos habilitar automerge se o PR for main -> staging
+    if: >
+      github.event.pull_request.base.ref == 'staging' &&
+      github.event.pull_request.head.ref == 'main'
     runs-on: ubuntu-latest
 
     steps:
