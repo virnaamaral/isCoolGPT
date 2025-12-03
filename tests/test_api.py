@@ -1,15 +1,12 @@
-# tests/test_api.py
 from fastapi.testclient import TestClient
-
 from app.main import app
-
 
 client = TestClient(app)
 
-
 def test_health_check_returns_ok():
     """
-    Teste bobinho: verifica se o /health responde 200 e contém 'ok'.
+    Teste 1: 
+    - verifica se o /health responde 200 e contém 'ok'.
     """
     response = client.get("/health")
 
@@ -21,7 +18,7 @@ def test_health_check_returns_ok():
 
 def test_ask_with_mocked_ollama_contains_ollama(monkeypatch):
     """
-    Teste bobinho 2:
+    Teste 2:
     - mocka a função ask_ollama para não depender do servidor real
     - garante que a resposta contém 'ollama'
     """
@@ -46,7 +43,6 @@ def test_ask_with_mocked_ollama_contains_ollama(monkeypatch):
     data = response.json()
     answer = data.get("answer", "")
 
-    # aqui vem o seu critério bobinho:
     # a resposta precisa conter 'ollama'
     assert "ollama" in answer.lower()
     assert data.get("model") is not None
@@ -54,7 +50,7 @@ def test_ask_with_mocked_ollama_contains_ollama(monkeypatch):
 
 def test_ask_with_empty_question_returns_400():
     """
-    Teste bobinho 3:
+    Teste 3:
     - se a pergunta vier vazia, o backend deve retornar 400.
     """
     payload = {"question": "   "}  # só espaços

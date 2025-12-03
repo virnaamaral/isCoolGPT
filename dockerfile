@@ -44,9 +44,8 @@ EXPOSE 8000
 
 # Variáveis padrão (podem ser sobrescritas em runtime)
 # IMPORTANTE: dentro do container, "localhost" é o container,
-# então para falar com o Ollama no HOST (Windows / Docker Desktop),
-# use: OLLAMA_BASE_URL=http://host.docker.internal:11434
-ENV OLLAMA_BASE_URL="http://host.docker.internal:11434" \
+# então para falar com o Ollama no HOST (Windows / Docker Desktop)
+ENV OLLAMA_BASE_URL="https://renae-paly-so.ngrok-free.dev" \
     OLLAMA_MODEL="gemma3:1b"
 
 # Comando de inicialização
