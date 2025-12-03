@@ -15,6 +15,8 @@
 
 ## 1. Visão geral do projeto
 
+Vídeo de Explicação e Execução do Projeto: https://drive.google.com/drive/folders/1kTFFpC2_rM-4vKa8E4_cHo7_bJwv_TLP?usp=sharing
+
 **Objetivo pedagógico:**  
 Demonstrar entendimento prático de conceitos de Cloud Computing através de uma aplicação real que:
 
