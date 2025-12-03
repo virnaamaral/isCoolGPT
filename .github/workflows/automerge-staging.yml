@@ -24,7 +24,6 @@ jobs:
       - name: Enable auto-merge for this PR
         uses: peter-evans/enable-pull-request-automerge@v3
         with:
-          # AGORA usamos o PAT, não mais o GITHUB_TOKEN
           token: ${{ secrets.PAT_AUTOMERGE }}
           pull-request-number: ${{ github.event.pull_request.number }}
           merge-method: squash
