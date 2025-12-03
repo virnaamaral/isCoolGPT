@@ -1,7 +1,7 @@
 # IsCoolGPT
 
 **_IsCoolGPT_** é um assistente de estudos focado em pessoas da área de tecnologia (desenvolvedores, designers, agilistas, produto, dados etc.), construído para a AV2 da disciplina de **Cloud Computing** utilizando:
-
+ 
 - **FastAPI** como backend
 - **Ollama + modelo gemma3:1b** rodando localmente
 - **ngrok** para expor o Ollama para a internet
