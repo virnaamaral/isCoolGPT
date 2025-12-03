@@ -1,6 +1,10 @@
 # app/main.py
+from pathlib import Path
+
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import HTMLResponse
 
 from app.schemas import QuestionRequest, AnswerResponse
 from app.services.ollama_client import ask_ollama, OllamaError
@@ -8,9 +12,32 @@ from app.config import OLLAMA_MODEL
 
 app = FastAPI(
     title="IsCoolGPT API",
-    description="Assistente de estudos em Cloud Computing usando FastAPI + Ollama.",
+    description=(
+        "IsCoolGPT é um assistente de estudos para pessoas da área de tecnologia "
+        "(devs, designers, agilistas, produto, dados e afins). "
+        "Ele ajuda a revisar conteúdos, explicar conceitos em diferentes níveis de profundidade, "
+        "criar exemplos práticos, propor exercícios e apoiar na organização dos estudos, "
+        "sempre com linguagem clara e foco em aprendizado real, não só em decorar respostas."
+    ),
     version="0.1.0",
 )
+
+# Diretório base do módulo app (pra achar a pasta static)
+BASE_DIR = Path(__file__).resolve().parent
+
+# Servir arquivos estáticos (HTML, CSS, JS) em /static
+app.mount(
+    "/static",
+    StaticFiles(directory=BASE_DIR / "static"),
+    name="static",
+)
+
+# Página inicial: devolve o index.html
+@app.get("/", response_class=HTMLResponse)
+async def read_root():
+    index_path = BASE_DIR / "static" / "index.html"
+    return index_path.read_text(encoding="utf-8")
+
 
 # CORS liberado pra facilitar o front em HTML/JS (podemos deixar mais restrito depois)
 app.add_middleware(

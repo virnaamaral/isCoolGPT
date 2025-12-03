@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>isCoolGPT</title>
+  <link rel="stylesheet" href="/static/style.css" />
+    <link
+        rel="icon"
+        type="image/png"
+        href="/static/iscoolgpt-logo.png"
+    />
+</head>
+<body>
+  <div class="app-container">
+<header class="app-header">
+  <div class="app-header-left">
+    <img
+      src="/static/iscoolgpt-logo.png"
+      alt="Logo isCoolGPT"
+      class="app-logo"
+    />
+    <div class="app-title-block">
+      <h1>isCoolGPT</h1>
+      <p>Assistente de estudos para pessoas de tecnologia (dev, design, agilidade, produto...)</p>
+    </div>
+  </div>
+</header>
+
+    <main class="chat-container">
+      <div id="messages" class="messages">
+        <!-- mensagens aparecem aqui via JS -->
+      </div>
+
+      <form id="ask-form" class="ask-form">
+        <label for="question">Sua pergunta</label>
+        <textarea
+          id="question"
+          rows="3"
+          placeholder="Pergunte algo sobre programação, UX, agilidade, arquitetura, etc..."
+          required
+        ></textarea>
+
+        <div class="form-actions">
+          <button type="submit" id="send-button">Enviar</button>
+          <span id="status" class="status"></span>
+        </div>
+      </form>
+    </main>
+
+    <footer class="app-footer">
+      <span>Backend: FastAPI + Ollama (gemma3:1b) • Deploy com Docker + Render</span>
+    </footer>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
