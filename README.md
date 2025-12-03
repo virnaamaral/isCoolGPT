@@ -1,7 +1,7 @@
 # IsCoolGPT
  
 **_IsCoolGPT_** é um assistente de estudos focado em pessoas da área de tecnologia (desenvolvedores, designers, agilistas, produto, dados etc.), construído para a AV2 da disciplina de **Cloud Computing** utilizando:
-
+ 
 - **FastAPI** como backend
 - **Ollama + modelo gemma3:1b** rodando localmente
 - **ngrok** para expor o Ollama para a internet
@@ -43,7 +43,6 @@ Ser um assistente de estudos que:
 * Branch protection → governança de código e segurança de mudanças em ambientes de produção.
 
 ![alt text](./readme-imgs/image-1.png)
-
 
 ---
 
@@ -186,6 +185,7 @@ No endpoint `POST /ask` (em `app/main.py`), qualquer `OllamaError` é convertido
 
 ![alt text](./readme-imgs/image4.png)
 
+
 ---
 ## 4. Configuração de ambiente
 
@@ -243,6 +243,7 @@ ollama serve
 
 > Importante: variáveis definidas com `$env:` no PowerShell valem apenas para aquele terminal.
 Sempre que você abrir uma nova janela de PowerShell para rodar `ollama serve`, precisa exportar novamente `OLLAMA_HOST` e `OLLAMA_ORIGINS`.
+
 
 ---
 
