@@ -482,19 +482,19 @@ As principais proteções são:
 - **Obrigação de Pull Request para qualquer mudança**
   - Não é permitido fazer merge direto nas branches `staging` e `production`.
   - Toda alteração precisa passar por um PR.
-![alt text](./readme-imgs/image12.png)
+   ![alt text](./readme-imgs/image12.png)
 
 - **Proibição de push direto e push com `--force`**
   - Impede que alguém sobrescreva o histórico dessas branches criticamente importantes.
   - Garante um histórico mais confiável e auditável.
-![alt text](./readme-imgs/image14.png)
+   ![alt text](./readme-imgs/image14.png)
 - **Deleção de branch apenas com permissões elevadas**
   - Evita que `staging` ou `production` sejam apagadas acidentalmente.
-![alt text](./readme-imgs/image15.png)
+   ![alt text](./readme-imgs/image15.png)
 - **Status check obrigatório**
   - O status do workflow de CI (`test-and-build`) precisa estar **verde** para que um PR seja mergeado em `staging` ou `production`.
   - Isso garante que apenas código testado e buildado chegue nesses ambientes.
-![alt text](./readme-imgs/image13.png)
+   ![alt text](./readme-imgs/image13.png)
 
 ### 8.2 Requisitos para o auto-merge funcionar
 
@@ -504,14 +504,14 @@ Para que o fluxo automático de sincronização `main → staging` funcione corr
   - Foi criado um PAT com permissões adequadas de acesso ao repositório.
   - Esse token foi salvo como secret no repositório com o nome `PAT_AUTOMERGE`.
   - Ele é utilizado pelo workflow `automerge-staging.yml` para habilitar o auto-merge via API do GitHub.
-![alt text](./readme-imgs/pat.png)
+   ![alt text](./readme-imgs/pat.png)
 
 
 - **Configurações do repositório**
   - O repositório foi configurado para:
     - **Permitir auto-merge** em Pull Requests.
     - Permitir o tipo de merge usado pelo workflow (no caso, `squash`).
-![alt text](./readme-imgs/automerge.png)
+   ![alt text](./readme-imgs/automerge.png)
 
 - **Permissões do GitHub Actions**
   - Na aba **Actions**, o GitHub Actions foi autorizado a:
@@ -521,7 +521,7 @@ Essas configurações permitem que o bot/GitHub Actions consiga:
 - abrir PRs automaticamente;
 - habilitar o auto-merge para eles;
 - respeitar as regras de proteção definidas nos rulesets.
-![alt text](./readme-imgs/workflowperms.png)
+   ![alt text](./readme-imgs/workflowperms.png)
 
 
 ### 8.3 Fluxo final de promoção de código
@@ -710,6 +710,8 @@ ngrok http 11434
 
 5. Render inicia o container, que consome o LLM via ngrok.
 
+---
+
 ## 11. Testes
 Os testes automatizados estão em `tests/test_api.py` e são executados pelo workflow de CI:
 ```bash
@@ -722,6 +724,8 @@ Nesses testes, são feitas verificações para checar se:
    * se a pergunta enviada é uma string vazia.
 
 O CI garante que os testes passem antes de qualquer merge em staging ou production, permitindo que o ambiente de produção permaneça íntegro.
+
+---
 
 ## 12. Recap Geral e Próximos Passos
 O IsCoolGPT é um assistente de estudos para tecnologia que junta um backend em FastAPI, um LLM local rodando via Ollama (gemma3:1b), exposição segura com ngrok, containerização com Docker/Docker Compose e um pipeline de CI/CD usando GitHub Actions, branch protection e deploy no Render. Na prática, ele simula um cenário bem real de cloud híbrida: a aplicação está em PaaS, mas o “cérebro” (modelo) continua rodando on-premises em uma máquina local.
