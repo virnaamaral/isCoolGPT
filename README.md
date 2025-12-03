@@ -44,7 +44,6 @@ Ser um assistente de estudos que:
 
 ![alt text](./readme-imgs/image-1.png)
 
-
 ---
 
 ## 2. Arquitetura geral
