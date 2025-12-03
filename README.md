@@ -185,6 +185,7 @@ No endpoint `POST /ask` (em `app/main.py`), qualquer `OllamaError` é convertido
 
 ![alt text](./readme-imgs/image4.png)
 
+
 ---
 ## 4. Configuração de ambiente
 
