@@ -132,6 +132,48 @@ body {
   font-size: 0.9rem;
 }
 
+.message-body h2,
+.message-body h3,
+.message-body h4 {
+  margin: 6px 0 4px;
+  font-weight: 600;
+}
+
+.message-body h2 {
+  font-size: 1rem;
+  color: #e5e7eb;
+}
+
+.message-body h3 {
+  font-size: 0.95rem;
+  color: #e5e7eb;
+}
+
+.message-body h4 {
+  font-size: 0.9rem;
+  color: #cbd5f5;
+}
+
+.message-body ul {
+  margin: 4px 0 4px 18px;
+  padding-left: 0;
+}
+
+.message-body li {
+  margin: 2px 0;
+}
+
+.message-body strong {
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.message-body em {
+  font-style: italic;
+  color: #cbd5f5;
+}
+
+
 .ask-form {
   display: flex;
   flex-direction: column;
@@ -229,4 +271,77 @@ body {
   .chat-container {
     padding: 12px 12px 10px;
   }
+}
+
+/* Mensagem de "digitando..." */
+.message.typing {
+  opacity: 0.8;
+}
+
+.typing-dots {
+  display: inline-flex;
+  gap: 3px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--assistant);
+  opacity: 0.4;
+  animation: typing-bounce 1s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes typing-bounce {
+  0%, 80%, 100% {
+    transform: translateY(0);
+    opacity: 0.3;
+  }
+  40% {
+    transform: translateY(-3px);
+    opacity: 1;
+  }
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.app-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.app-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.4);
+}
+
+.app-title-block h1 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.app-title-block p {
+  margin: 2px 0 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
 }

@@ -4,13 +4,27 @@
   <meta charset="UTF-8" />
   <title>isCoolGPT</title>
   <link rel="stylesheet" href="/static/style.css" />
+    <link
+        rel="icon"
+        type="image/png"
+        href="/static/iscoolgpt-logo.png"
+    />
 </head>
 <body>
   <div class="app-container">
-    <header class="app-header">
+<header class="app-header">
+  <div class="app-header-left">
+    <img
+      src="/static/iscoolgpt-logo.png"
+      alt="Logo isCoolGPT"
+      class="app-logo"
+    />
+    <div class="app-title-block">
       <h1>isCoolGPT</h1>
-      <p>Assistente de estudos em Cloud Computing (FastAPI + Ollama)</p>
-    </header>
+      <p>Assistente de estudos para pessoas de tecnologia (dev, design, agilidade, produto...)</p>
+    </div>
+  </div>
+</header>
 
     <main class="chat-container">
       <div id="messages" class="messages">
@@ -22,7 +36,7 @@
         <textarea
           id="question"
           rows="3"
-          placeholder="Pergunte algo sobre Cloud, containers, CI/CD..."
+          placeholder="Pergunte algo sobre programação, UX, agilidade, arquitetura, etc..."
           required
         ></textarea>
 
