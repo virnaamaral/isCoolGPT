@@ -1,4 +1,3 @@
-# app/config.py
 import os
 
 # URL do servidor do Ollama (em dev, geralmente http://localhost:11434)

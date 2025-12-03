@@ -1,4 +1,3 @@
-# app/services/ollama_client.py
 import httpx
 
 from app.config import OLLAMA_BASE_URL, OLLAMA_MODEL, SYSTEM_PROMPT

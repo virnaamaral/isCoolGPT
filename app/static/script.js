@@ -76,7 +76,6 @@ function renderMarkdown(rawText) {
   return text;
 }
 
-
 let typingElement = null;
 
 function scrollToBottom() {
@@ -91,7 +90,6 @@ function scrollToBottom() {
     }
   });
 }
-
 
 // cria a mensagem de "digitando..."
 function showTypingIndicator() {
@@ -213,7 +211,6 @@ async function handleSubmit(event) {
     sendButton.disabled = false;
   }
 }
-
 
 // Enviar no submit do form
 form.addEventListener("submit", handleSubmit);

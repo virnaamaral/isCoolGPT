@@ -1,4 +1,3 @@
-# app/main.py
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
@@ -39,10 +38,10 @@ async def read_root():
     return index_path.read_text(encoding="utf-8")
 
 
-# CORS liberado pra facilitar o front em HTML/JS (podemos deixar mais restrito depois)
+# CORS liberado pra facilitar o front em HTML/JS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # em produção você pode restringir
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -77,7 +76,4 @@ async def ask(request: QuestionRequest):
             detail=f"Falha ao consultar o modelo de linguagem: {exc}",
         ) from exc
 
-    # Aqui a resposta já vem "pronta" do modelo. Em testes futuros,
-    # vamos checar se, por exemplo, quando a pergunta pede 'ollama',
-    # essa palavra de fato aparece na resposta.
     return AnswerResponse(answer=answer, model=OLLAMA_MODEL)
