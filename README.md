@@ -243,6 +243,7 @@ ollama serve
 > Importante: variáveis definidas com `$env:` no PowerShell valem apenas para aquele terminal.
 Sempre que você abrir uma nova janela de PowerShell para rodar `ollama serve`, precisa exportar novamente `OLLAMA_HOST` e `OLLAMA_ORIGINS`.
 
+
 ---
 
 ## 5. ngrok + Ollama
