@@ -57,7 +57,6 @@ Ser um assistente de estudos que:
 - **Ambiente de produção (Render)**  
   `Navegador → serviço FastAPI no Render → OLLAMA_BASE_URL (URL do ngrok) → Ollama (gemma3:1b) no Windows`
 
-
 ### 2.2 Diagrama simplificado
 
 ```text
