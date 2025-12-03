@@ -2,24 +2,30 @@ name: Auto-merge main -> staging
 
 on:
   pull_request:
-    types: [opened, reopened, synchronize]
+    types: [opened, reopened, synchronize, ready_for_review]
     branches:
       - staging
 
+# Essas permissões aqui são do GITHUB_TOKEN, mas como vamos usar PAT,
+# podemos deixar só leitura mesmo (ou até remover essa seção; assim tá ok).
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
+  pull-requests: read
 
 jobs:
   enable-automerge:
-    # Só autoconfigura se o PR foi criado pelo GitHub Actions (seu workflow de auto-PR)
-    if: github.actor == 'github-actions[bot]'
+    # Só habilita automerge se o PR for main -> staging
+    if: >
+      github.event.pull_request.base.ref == 'staging' &&
+      github.event.pull_request.head.ref == 'main'
     runs-on: ubuntu-latest
 
     steps:
       - name: Enable auto-merge for this PR
         uses: peter-evans/enable-pull-request-automerge@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # AGORA usamos o PAT, não mais o GITHUB_TOKEN
+          token: ${{ secrets.PAT_AUTOMERGE }}
           pull-request-number: ${{ github.event.pull_request.number }}
           merge-method: squash
+          commit-title: 'chore: sync main -> staging'
