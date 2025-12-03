@@ -12,7 +12,13 @@ from app.config import OLLAMA_MODEL
 
 app = FastAPI(
     title="IsCoolGPT API",
-    description="Assistente de estudos em Cloud Computing usando FastAPI + Ollama.",
+    description=(
+        "IsCoolGPT é um assistente de estudos para pessoas da área de tecnologia "
+        "(devs, designers, agilistas, produto, dados e afins). "
+        "Ele ajuda a revisar conteúdos, explicar conceitos em diferentes níveis de profundidade, "
+        "criar exemplos práticos, propor exercícios e apoiar na organização dos estudos, "
+        "sempre com linguagem clara e foco em aprendizado real, não só em decorar respostas."
+    ),
     version="0.1.0",
 )
 
