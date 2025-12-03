@@ -4,7 +4,7 @@ import os
 OLLAMA_BASE_URL: str = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 
 # Nome do modelo a ser usado
-OLLAMA_MODEL: str = os.getenv("OLLAMA_MODEL", "gemma3.1b")
+OLLAMA_MODEL: str = os.getenv("OLLAMA_MODEL", "gemma3:1b")
 
 # Prompt de sistema (personality do IsCoolGPT)
 SYSTEM_PROMPT: str = os.getenv(
